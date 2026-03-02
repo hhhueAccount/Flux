@@ -74,10 +74,6 @@ class Session {
      * 异步发送数据包
      */
     fun send(packet: Packet) {
-        if (channel is NioSocketChannel) {
-            throwError("异步写入数据")
-            return
-        }
         channel.writeAndFlush(packet)
     }
 
@@ -85,10 +81,6 @@ class Session {
      * 同步发送数据包
      */
     fun sendSync(packet: Packet) {
-        if (channel is NioSocketChannel) {
-            throwError("同步写入数据")
-            return
-        }
         channel.writeAndFlush(packet).sync()
     }
 
@@ -98,10 +90,6 @@ class Session {
      * 先进行写入，然后再统一flush
      */
     fun send(vararg packets: Packet) {
-        if (channel is NioSocketChannel) {
-            throwError("异步写入数据")
-            return
-        }
         for (packet in packets) {
             channel.write(packet)
         }
@@ -114,10 +102,6 @@ class Session {
      * 先进行写入，然后再统一flush
      */
     fun sendSync(vararg packets: Packet) {
-        if (channel is NioSocketChannel) {
-            throwError("同步写入数据")
-            return
-        }
         for (packet in packets) {
             channel.write(packet).sync()
         }
@@ -134,10 +118,6 @@ class Session {
      * @see EncryptionCodec 加密编解码器实现
      */
     fun encrypt(sharedSecretKey: SecretKey) {
-        if (channel is NioSocketChannel) {
-            throwError("进行加密")
-            return
-        }
         channel.pipeline()
             .replace(
                 "encryption", "encryption",
@@ -155,25 +135,11 @@ class Session {
      * @see CompressionHandler 压缩处理器实现
      */
     fun compress(threshold: Int) {
-        if (channel is NioSocketChannel) {
-            throwError("进行压缩")
-            return
-        }
         channel.pipeline()
             .replace(
                 "compression", "compression",
                 CompressionHandler(threshold)
             )
-    }
-
-    /**
-     * 内部工具方法，用于快速输出警报日志
-     *
-     * 如果您正在给一个[io.netty.channel.socket.nio.NioServerSocketChannel]进行不当的操作，
-     * 那么这种格式的日志就会输出，这个时候，您需要注意您是否有误操作
-     */
-    private fun throwError(operation: String) {
-        logger.error("** 正在尝试给一个NioSocketChannel对象${operation}，这个操作是危险的 **")
     }
 
     override fun toString() =

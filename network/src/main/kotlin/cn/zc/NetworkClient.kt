@@ -16,6 +16,9 @@ import io.netty.channel.socket.nio.NioSocketChannel
 import io.netty.handler.timeout.ReadTimeoutHandler
 import org.apache.logging.log4j.kotlin.logger
 
+/**
+ * `Minecraft`客户端网络服务
+ */
 class NetworkClient(val port: Int = 25565, val host: String = "localhost") {
     /**
      * Worker线程组，负责处理已建立连接的I/O操作（读写数据）。
@@ -31,7 +34,7 @@ class NetworkClient(val port: Int = 25565, val host: String = "localhost") {
     /**
      * 内部维护的会话对象
      *
-     * 会在`launch()`方法中被初始化。用来发送
+     * 会在`launch()`方法中被初始化
      */
     lateinit var session: Session
 
@@ -93,36 +96,21 @@ class NetworkClient(val port: Int = 25565, val host: String = "localhost") {
     }
 
     /**
-     * 推进连接状态到下一个阶段。
-     *
-     * 典型的Minecraft连接状态流转：
-     * `HANDSHAKE → STATUS → LOGIN → PLAY`
-     * 如果推进到`PLAY`阶段再尝试推进，那么连接始终停留于`PLAY`阶段
-     *
-     * 每个状态对应不同的协议处理逻辑。
-     *
-     * @see ConnectionState.next 获取下一个状态
-     */
-    fun nextState() {
-        session.nextState()
-    }
-
-    /**
-     * 异步发送数据包
+     * 向着服务端异步发送数据包
      */
     fun send(packet: Packet) {
         session.send(packet)
     }
 
     /**
-     * 同步发送数据包
+     * 向着服务端同步发送数据包
      */
     fun sendSync(packet: Packet) {
         session.sendSync(packet)
     }
 
     /**
-     * 异步发送多个数据包
+     * 向着服务端异步发送多个数据包
      *
      * 先进行写入，然后再统一flush
      */

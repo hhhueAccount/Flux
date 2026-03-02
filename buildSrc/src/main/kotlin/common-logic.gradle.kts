@@ -31,7 +31,7 @@ tasks.withType<Test>().configureEach {
     }
 }
 
-//编码设置
+// 编码设置
 tasks.withType<JavaCompile> {
     options.encoding = "UTF-8"
 }

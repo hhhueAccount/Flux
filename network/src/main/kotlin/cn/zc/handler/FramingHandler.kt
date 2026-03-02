@@ -5,7 +5,6 @@ import cn.zc.extension.writeVarInt
 import io.netty.buffer.ByteBuf
 import io.netty.channel.ChannelHandlerContext
 import io.netty.handler.codec.ByteToMessageCodec
-import lombok.extern.log4j.Log4j2
 import org.apache.logging.log4j.kotlin.logger
 
 /**
@@ -17,7 +16,6 @@ import org.apache.logging.log4j.kotlin.logger
  * 参考自[Glowstone](https://github.com/GlowstoneMC/Glowstone)和
  * [Minestom](https://github.com/Minestom/Minestom)的项目设计理念
  */
-@Log4j2
 class FramingHandler : ByteToMessageCodec<ByteBuf?>() {
     private fun readableVarInt(buf: ByteBuf): Boolean {
         if (buf.readableBytes() > 5) {

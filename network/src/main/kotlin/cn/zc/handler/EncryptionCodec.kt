@@ -4,7 +4,6 @@ import io.netty.buffer.ByteBuf
 import io.netty.buffer.Unpooled
 import io.netty.channel.ChannelHandlerContext
 import io.netty.handler.codec.MessageToMessageCodec
-import lombok.extern.log4j.Log4j2
 import org.apache.logging.log4j.kotlin.logger
 import java.nio.ByteBuffer
 import java.security.GeneralSecurityException
@@ -43,7 +42,6 @@ import javax.crypto.spec.IvParameterSpec
  * @see <a href="https://github.com/GlowstoneMC/Glowstone">Glowstone参考实现</a>
  * @see <a href="https://github.com/Minestom/Minestom">Minestom参考实现</a>
  */
-@Log4j2
 class EncryptionCodec(sharedSecret: SecretKey) : MessageToMessageCodec<ByteBuf?, ByteBuf?>() {
     /**
      * 加密缓冲区实例，用于出站数据的加密

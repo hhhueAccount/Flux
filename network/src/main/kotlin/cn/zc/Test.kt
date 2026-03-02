@@ -22,7 +22,7 @@ fun main() {
             1
         )
     )
-    networkClient.nextState()
+    networkClient.session.nextState()
     networkClient.sendSync(StatusRequestPacket())
 }
 

@@ -40,3 +40,5 @@ include(
 )
 
 rootProject.name = "Flux"
+include("logic")
+include("registry")
