@@ -116,39 +116,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Flux [:app:cn.zc.app.MinecraftMainKt.main()].executor": "Run",
-    "Gradle.Flux [:logic:build].executor": "Run",
-    "Gradle.Flux [:network:cn.zc.MainTest.main()].executor": "Run",
-    "Gradle.Flux [:network:cn.zc.TestKt.main()].executor": "Run",
-    "Gradle.Flux [:network:cn.zc.Testing.main()].executor": "Run",
-    "Gradle.Flux [:network:cn.zc.TestingKt.main()].executor": "Run",
-    "Gradle.Flux [clean].executor": "Run",
-    "Gradle.下载源代码.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JDK": "ms-21",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Documents/Projects/Flux/registry/src/main/resources",
-    "onboarding.tips.debug.path": "D:/Documents/Projects/Flux/nbt/src/main/kotlin/Main.kt",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "settings.sync"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Flux [:app:cn.zc.app.MinecraftMainKt.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Flux [:logic:build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Flux [:network:cn.zc.MainTest.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Flux [:network:cn.zc.TestKt.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Flux [:network:cn.zc.Testing.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Flux [:network:cn.zc.TestingKt.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Flux [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.下载源代码.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JDK&quot;: &quot;ms-21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Documents/Projects/Flux/registry/src/main/resources&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;D:/Documents/Projects/Flux/nbt/src/main/kotlin/Main.kt&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;
   },
-  "keyToStringList": {
-    "jdk.preference.JDK": [
-      "21=E:/ProgramFiles/JDKs/microsoft-21"
+  &quot;keyToStringList&quot;: {
+    &quot;jdk.preference.JDK&quot;: [
+      &quot;21=E:/ProgramFiles/JDKs/microsoft-21&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\Projects\Flux\registry\src\main\resources" />
