@@ -1,6 +1,8 @@
 # 📚 Flux
 
 ![GitHub License](https://img.shields.io/github/license/hhhueAccount/Flux)
+![Code Size](https://img.shields.io/github/languages/code-size/hhhueAccount/Flux)
+![Line of Code](https://www.aschey.tech/tokei/github.com/hhhueAccount/Flux)
 ![Static Badge](https://img.shields.io/badge/minecraft%20rewrite-blue)
 
 [中文说明](./README_zh_CN.md)

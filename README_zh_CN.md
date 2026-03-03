@@ -1,6 +1,8 @@
 # 📚 Flux
 
 ![GitHub License](https://img.shields.io/github/license/hhhueAccount/Flux)
+![Code Size](https://img.shields.io/github/languages/code-size/hhhueAccount/Flux)
+![Line of Code](https://www.aschey.tech/tokei/github.com/hhhueAccount/Flux)
 ![Static Badge](https://img.shields.io/badge/minecraft%20rewrite-blue)
 
 Flux是一个基于kotlin重写的Minecraft服务端，与其他类似的开源项目一样，它不依赖Mojang写的Minecraft代码，
