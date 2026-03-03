@@ -1,7 +1,9 @@
 package cn.zc.registry
 
 import cn.zc.packet.Packet
+import cn.zc.packet.PlaceHolerPacket
 import io.netty.buffer.ByteBuf
+import org.jetbrains.annotations.ApiStatus
 import kotlin.reflect.KClass
 
 /**
@@ -15,6 +17,7 @@ import kotlin.reflect.KClass
  * @see ByteBuf Netty的字节缓冲区
  * @see KClass Kotlin类引用
  */
+@ApiStatus.Internal
 data class PacketInfo<T : Packet>(
     /**
      * 数据包的Kotlin类引用。
@@ -30,4 +33,8 @@ data class PacketInfo<T : Packet>(
      * 3. 构建并返回[T]类型的数据包对象
      */
     val deserializer: (ByteBuf) -> T
-)
+) {
+    companion object {
+        val PLACEHOLDER: PacketInfo<PlaceHolerPacket> = PacketInfo(PlaceHolerPacket::class, ::PlaceHolerPacket)
+    }
+}

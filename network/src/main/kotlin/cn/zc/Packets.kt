@@ -2,6 +2,7 @@ package cn.zc
 
 import cn.zc.packet.Packet
 import com.google.common.eventbus.EventBus
+import org.jetbrains.annotations.ApiStatus
 
 /**
  * 数据包管理器，提供基于事件总线的数据包分发机制。
@@ -13,6 +14,7 @@ import com.google.common.eventbus.EventBus
  * @see cn.zc.packet.Packet 数据包基类
  * @see EventBus Google Guava事件总线
  */
+@ApiStatus.Experimental
 object Packets {
     /**
      * 事件总线实例，用于管理事件的发布和订阅。
@@ -29,6 +31,7 @@ object Packets {
      *
      * @param event 要发布的数据包事件，必须是[cn.zc.packet.Packet]的子类
      */
+    @ApiStatus.Internal
     fun post(event: Packet) {
         bus.post(event)
     }

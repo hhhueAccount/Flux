@@ -2,6 +2,7 @@ package cn.zc.packet
 
 import cn.zc.Session
 import io.netty.buffer.ByteBuf
+import org.jetbrains.annotations.ApiStatus
 
 /**
  * 所有网络数据包的抽象基类，定义了数据包读取逻辑的标准接口。
@@ -27,5 +28,6 @@ abstract class Packet {
      *
      * @param byteBuf 目标字节缓冲区，序列化后的数据将写入此缓冲区
      */
+    @ApiStatus.Internal
     abstract fun serialize(byteBuf: ByteBuf)
 }

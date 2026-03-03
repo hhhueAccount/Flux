@@ -29,4 +29,6 @@ dependencies {
     implementation(libs.kotlin.reflection)
 
     implementation(project(":utils"))
+
+    implementation(libs.jetbrains.annotation)
 }

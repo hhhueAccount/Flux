@@ -1,9 +1,10 @@
 package cn.zc.registry
 
-import cn.zc.packet.EmptyPacket
+import cn.zc.packet.ErrorPacket
 import cn.zc.packet.Packet
 import io.netty.buffer.ByteBuf
 import org.apache.logging.log4j.kotlin.logger
+import org.jetbrains.annotations.ApiStatus
 import kotlin.reflect.KClass
 
 /**
@@ -62,11 +63,12 @@ abstract class Registry {
      * @return 反序列化后的数据包对象
      * 注意：需要确保ID在有效范围内（0 <= id < packets.size）。
      */
+    @ApiStatus.Internal
     fun deserialize(id: Int, byteBuf: ByteBuf): Packet {
         if (packets.size <= id) {
             // 不存在就报错
             logger.error("注册表 $this 中未注册ID为 $id 的数据包")
-            return EmptyPacket
+            return ErrorPacket
         }
         return packets[id].deserializer(byteBuf)
     }

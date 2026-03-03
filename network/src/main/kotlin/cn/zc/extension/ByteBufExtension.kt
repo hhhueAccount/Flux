@@ -309,3 +309,79 @@ fun ByteBuf.readLpVector() = CompressedVectorHelper.read(this)
 fun ByteBuf.writeLpVector(vector: Vector) {
     CompressedVectorHelper.write(this, vector)
 }
+
+fun <E> ByteBuf.readList(reader: ByteBuf.() -> E): List<E> {
+    val list = mutableListOf<E>()
+    for (i in 0 until readVarInt()) {
+        list.add(reader())
+    }
+
+    return list
+}
+
+/**
+ * 把一列表的元素写入到[ByteBuf]
+ *
+ * 注意，其前方写入了列表长度
+ */
+fun <E> ByteBuf.writeList(values: List<E>, writer: ByteBuf.(E) -> Unit) {
+    writeVarInt(values.size)
+    for (e in values) {
+        writer(e)
+    }
+}
+
+fun <E> ByteBuf.readKnownLength(expectedLength: Int, reader: ByteBuf.() -> E): List<E> {
+    val list = mutableListOf<E>()
+    for (i in 0 until expectedLength) {
+        list.add(reader())
+    }
+
+    return list
+}
+
+/**
+ * 把一列表的元素写入到[ByteBuf]
+ *
+ * 注意，其前方没有写入列表长度
+ */
+fun <E> ByteBuf.writeKnownLength(values: List<E>, writer: ByteBuf.(E) -> Unit) {
+    for (e in values) {
+        writer(e)
+    }
+}
+
+fun <T> ByteBuf.readOptional(reader: ByteBuf.() -> T): T? {
+    if (readBoolean()) {
+        return reader()
+    } else {
+        return null
+    }
+}
+
+fun <T> ByteBuf.writeOptional(value: T?, writer: ByteBuf.(T) -> Unit) {
+    if (value == null) {
+        writeBoolean(false)
+    } else {
+        writeBoolean(true)
+        writer(value)
+    }
+}
+
+fun ByteBuf.readByteArray(): ByteArray {
+    val size = readVarInt()
+    val byteArray = ByteArray(size)
+    readBytes(byteArray)
+    return byteArray
+}
+
+fun ByteBuf.writeByteArray(byteArray: ByteArray) {
+    writeVarInt(byteArray.size)
+    writeBytes(byteArray)
+}
+
+fun ByteBuf.readIdentifier() = Identifier.of(readUTF8())
+
+fun ByteBuf.writeIdentifier(identifier: Identifier) {
+    writeUTF8(identifier.toString())
+}

@@ -2,6 +2,7 @@ package cn.zc.registry
 
 import cn.zc.ConnectionState
 import cn.zc.ConnectionState.*
+import org.jetbrains.annotations.ApiStatus
 
 /**
  * 代表所有连接阶段的数据包注册表。
@@ -10,7 +11,8 @@ import cn.zc.ConnectionState.*
  * 你可以根据连接状态匹配到对应的注册表。
  */
 object ServerBound {
-    fun state(state: ConnectionState) = when(state) {
+    @ApiStatus.Internal
+    fun state(state: ConnectionState) = when (state) {
         HANDSHAKE -> ServerBoundRegistry.Handshake
         STATUS -> ServerBoundRegistry.Status
         LOGIN -> ServerBoundRegistry.Login

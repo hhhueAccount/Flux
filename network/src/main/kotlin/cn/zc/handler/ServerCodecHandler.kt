@@ -4,7 +4,7 @@ import cn.zc.Packets
 import cn.zc.extension.minecraft
 import cn.zc.extension.readVarInt
 import cn.zc.extension.writeVarInt
-import cn.zc.packet.EmptyPacket
+import cn.zc.packet.ErrorPacket
 import cn.zc.packet.Packet
 import cn.zc.registry.ClientBound
 import cn.zc.registry.ServerBound
@@ -72,7 +72,7 @@ class ServerCodecHandler : MessageToMessageCodec<ByteBuf, Packet>() {
         // 根据ID对应的数据读取逻辑来初始化Packet对象
         val packet = ServerBound.state(clientConnection.state).deserialize(id, trimmedBuffer)
         // 读取失败了，直接取消接下来的逻辑的推进，防止出现事故
-        if (packet == EmptyPacket) return
+        if (packet == ErrorPacket) return
 
         logger.trace("[I](${ctx.channel().remoteAddress()}) $packet")
         // 绑定发送者

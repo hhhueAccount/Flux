@@ -6,8 +6,9 @@ import cn.zc.handler.EncryptionCodec
 import cn.zc.packet.Packet
 import com.google.common.base.MoreObjects
 import io.netty.channel.Channel
-import io.netty.channel.socket.nio.NioSocketChannel
+import io.netty.channel.ChannelFuture
 import org.apache.logging.log4j.kotlin.logger
+import org.jetbrains.annotations.ApiStatus
 import javax.crypto.SecretKey
 
 /**
@@ -57,32 +58,29 @@ class Session {
      *
      * @see ConnectionState.next 获取下一个状态
      */
+    @ApiStatus.Internal
     fun nextState() {
         state = state.next()
+        logger.trace("[NextState](${channel.remoteAddress()}) $state")
     }
 
     /**
      * 断开这个连接
      */
-    fun disconnect() {
-        if (channel.isActive) {
-            channel.close().syncUninterruptibly()
-        }
-    }
+    fun disconnect(): ChannelFuture? =
+        channel.close().syncUninterruptibly()
 
     /**
      * 异步发送数据包
      */
-    fun send(packet: Packet) {
+    fun send(packet: Packet): ChannelFuture? =
         channel.writeAndFlush(packet)
-    }
 
     /**
      * 同步发送数据包
      */
-    fun sendSync(packet: Packet) {
+    fun sendSync(packet: Packet): ChannelFuture? =
         channel.writeAndFlush(packet).sync()
-    }
 
     /**
      * 异步发送多个数据包
@@ -117,6 +115,7 @@ class Session {
      * @param sharedSecretKey 客户端和服务器协商的共享密钥
      * @see EncryptionCodec 加密编解码器实现
      */
+    @ApiStatus.Internal
     fun encrypt(sharedSecretKey: SecretKey) {
         channel.pipeline()
             .replace(
@@ -134,6 +133,7 @@ class Session {
      * @param threshold 压缩阈值，单位：字节。当数据包大小超过此值时启用压缩
      * @see CompressionHandler 压缩处理器实现
      */
+    @ApiStatus.Internal
     fun compress(threshold: Int) {
         channel.pipeline()
             .replace(
@@ -170,6 +170,7 @@ class Session {
          * @param channel 客户端网络通道
          * @return 与该通道关联的会话实例
          */
+        @ApiStatus.Internal
         fun get(channel: Channel): Session =
             if (map.containsKey(channel)) {
                 map[channel]!!

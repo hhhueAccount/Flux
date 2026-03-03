@@ -11,19 +11,19 @@ data class IntentionPacket(
     val protocolVersion: Int,
     val serverAddress: String,
     val serverPort: Int,
-    val intent: Int
+    val intent: Intent
 ) : ServerBoundPacket() {
     constructor(byteBuf: ByteBuf) : this(
         byteBuf.readVarInt(),
         byteBuf.readUTF8(),
         byteBuf.readShort().toInt(),
-        byteBuf.readVarInt()
+        Intent.id(byteBuf.readVarInt())
     )
 
     override fun serialize(byteBuf: ByteBuf) {
         byteBuf.writeVarInt(protocolVersion)
         byteBuf.writeUTF8(serverAddress)
         byteBuf.writeShort(serverPort)
-        byteBuf.writeVarInt(intent)
+        byteBuf.writeVarInt(intent.id())
     }
 }
