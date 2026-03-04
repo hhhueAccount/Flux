@@ -4,23 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05dd0692-2c2d-4796-819e-fe4a68350972" name="更改" comment="update README.md.">
-      <change afterPath="$PROJECT_DIR$/registry/src/main/kotlin/cn/zc/RegistryLoader.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/registry/src/main/kotlin/cn/zc/bean/Tag.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/registry/src/main/kotlin/cn/zc/data/RootRegistries.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/registry/src/main/kotlin/cn/zc/data/RootRegistry.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/src/main/kotlin/cn/zc/resource/Identifier.kt" afterDir="false" />
+    <list default="true" id="05dd0692-2c2d-4796-819e-fe4a68350972" name="更改" comment="Fix dependency errors in configuration">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/MinecraftMain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/cn/zc/MinecraftMain.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/src/main/kotlin/common-logic.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/src/main/kotlin/common-logic.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/logic/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/ListPingBuilder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/ListPingBuilder.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/LogicCore.kt" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/LogicCore.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/PluginMessages.kt" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/PluginMessages.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/SimplePlayerData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/SimplePlayerData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/handler/LoginHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/handler/LoginHandler.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/network/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/network/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/extension/ByteBufExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/extension/ByteBufExtension.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/extension/Identifier.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/ClientCookieRequestPacket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/ClientCookieRequestPacket.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/ClientPluginMessagePacket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/ClientPluginMessagePacket.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/FeatureFlagsPacket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/FeatureFlagsPacket.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/RegistryDataPacket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/RegistryDataPacket.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/SimpleRegistryEntry.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/SimpleRegistryEntry.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/StoreCookiePacket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/StoreCookiePacket.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/serverbound/configuration/ServerPluginMessagePacket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/serverbound/configuration/ServerPluginMessagePacket.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/common/UpdateTagsPacket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/common/UpdateTagsPacket.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/registry/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/registry/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,17 +47,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="Flux" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Flux" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="Flux" type="f1a62948:ProjectNode" />
                 <item name="logic" type="2d1252cf:ModuleNode" />
               </path>
               <path>
@@ -66,6 +54,447 @@
                 <item name="Flux" type="f1a62948:ProjectNode" />
                 <item name="logic" type="2d1252cf:ModuleNode" />
                 <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="org.jetbrains.kotlin:kotlin-stdlib:2.2.21" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="compileClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="org.jetbrains.kotlin:kotlin-stdlib:2.2.21" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="com.flowpowered:flow-network:1.0.0" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="com.google.code.gson:gson:2.13.2" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="com.google.guava:guava:33.5.0-jre" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.netty:netty-buffer:4.2.9.Final" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.netty:netty-transport:4.2.9.Final" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.netty:netty-transport:4.2.9.Final" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.netty:netty-resolver:4.2.9.Final" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-bom:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-bom:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-api:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-bom:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-api:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-key:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-bom:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-api:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-key:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:examination-string:1.3.0" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-bom:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-nbt:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-bom:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-text-logger-slf4j:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-bom:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-text-minimessage:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-bom:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-text-serializer-gson:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-bom:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-text-serializer-gson:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-text-serializer-json:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-bom:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-text-serializer-legacy:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-bom:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.kyori:adventure-text-serializer-plain:4.26.1" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="net.md-5:bungeecord-chat:1.21-R0.2-deprecated+build.21" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven.resolver:maven-resolver-connector-basic:1.9.18" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven.resolver:maven-resolver-connector-basic:1.9.18" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven.resolver:maven-resolver-spi:1.9.18" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven.resolver:maven-resolver-connector-basic:1.9.18" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven.resolver:maven-resolver-util:1.9.18" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven.resolver:maven-resolver-transport-http:1.9.18" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven.resolver:maven-resolver-transport-http:1.9.18" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.httpcomponents:httpclient:4.5.14" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven.resolver:maven-resolver-transport-http:1.9.18" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.slf4j:jcl-over-slf4j:1.7.36" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven:maven-resolver-provider:3.9.6" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven:maven-resolver-provider:3.9.6" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven.resolver:maven-resolver-impl:1.9.18" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven:maven-resolver-provider:3.9.6" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven.resolver:maven-resolver-impl:1.9.18" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven.resolver:maven-resolver-named-locks:1.9.18" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven:maven-resolver-provider:3.9.6" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven:maven-model-builder:3.9.6" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven:maven-resolver-provider:3.9.6" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven:maven-model-builder:3.9.6" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven:maven-artifact:3.9.6" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven:maven-resolver-provider:3.9.6" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven:maven-model:3.9.6" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven:maven-resolver-provider:3.9.6" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.maven:maven-repository-metadata:3.9.6" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.commons:commons-text:1.15.0" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.logging.log4j:log4j-api-kotlin:1.5.0" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.logging.log4j:log4j-slf4j2-impl:2.25.3" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.logging.log4j:log4j-slf4j2-impl:2.25.3" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.apache.logging.log4j:log4j-core:2.25.3" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="org.jetbrains.kotlin:kotlin-reflect:2.2.21" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Flux" type="f1a62948:ProjectNode" />
+                <item name="logic" type="2d1252cf:ModuleNode" />
+                <item name="Dependencies" type="6de06a37:ExternalSystemViewDefaultContributor$MyDependenciesNode" />
+                <item name="runtimeClasspath" type="62daadca:ExternalSystemViewDefaultContributor$DependencyScopeExternalSystemNode" />
+                <item name="project network" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
+                <item name="project utils" type="b3323d55:ExternalSystemViewDefaultContributor$DependencyExternalSystemNode" />
               </path>
             </expand>
             <select />
@@ -131,39 +560,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.Flux [:app:cn.zc.app.MinecraftMainKt.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Flux [:logic:build].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Flux [:network:cn.zc.MainTest.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Flux [:network:cn.zc.TestKt.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Flux [:network:cn.zc.Testing.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Flux [:network:cn.zc.TestingKt.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Flux [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.下载源代码.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JDK&quot;: &quot;ms-21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Documents/Projects/Flux/registry/src/main/resources&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;D:/Documents/Projects/Flux/nbt/src/main/kotlin/Main.kt&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Flux [:app:cn.zc.app.MinecraftMainKt.main()].executor": "Run",
+    "Gradle.Flux [:app:cn.zc.app.cn.zc.MinecraftMainKt.main()].executor": "Run",
+    "Gradle.Flux [:logic:build].executor": "Run",
+    "Gradle.Flux [:network:cn.zc.MainTest.main()].executor": "Run",
+    "Gradle.Flux [:network:cn.zc.TestKt.main()].executor": "Run",
+    "Gradle.Flux [:network:cn.zc.Testing.main()].executor": "Run",
+    "Gradle.Flux [:network:cn.zc.TestingKt.main()].executor": "Run",
+    "Gradle.Flux [clean].executor": "Run",
+    "Gradle.下载源代码.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JDK": "ms-21",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Documents/Projects/Flux/registry/src/main/resources",
+    "onboarding.tips.debug.path": "D:/Documents/Projects/Flux/nbt/src/main/kotlin/Main.kt",
+    "project.structure.last.edited": "工件",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.29425287",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;jdk.preference.JDK&quot;: [
-      &quot;21=E:/ProgramFiles/JDKs/microsoft-21&quot;
+  "keyToStringList": {
+    "jdk.preference.JDK": [
+      "21=E:/ProgramFiles/JDKs/microsoft-21"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documents\Projects\Flux\registry\src\main\resources" />
@@ -175,16 +605,16 @@
       <recent name="cn.zc.handler" />
     </key>
     <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="cn.zc.app.cn.zc" />
       <recent name="cn.zc.resource" />
       <recent name="cn.zc.packet.clientbound.common" />
       <recent name="cn.zc.registry" />
       <recent name="cn.zc.extension" />
-      <recent name="cn.zc" />
     </key>
   </component>
   <component name="RunManager" selected="Kotlin.MinecraftMainKt">
     <configuration name="MinecraftMainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.zc.app.MinecraftMainKt" />
+      <option name="MAIN_CLASS_NAME" value="cn.zc.app.cn.zc.MinecraftMainKt" />
       <module name="Flux.app.main" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -373,7 +803,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772554436185</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Optimize imports and confirm registry implementation as POJO loading solution">
+      <option name="closed" value="true" />
+      <created>1772584099553</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1772584099553</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -393,7 +831,9 @@
     <MESSAGE value="no more lombok" />
     <MESSAGE value="update network system. modified README.md." />
     <MESSAGE value="update README.md." />
-    <option name="LAST_COMMIT_MESSAGE" value="update README.md." />
+    <MESSAGE value="Optimize imports and confirm registry implementation as POJO loading solution" />
+    <MESSAGE value="Fix dependency errors in configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix dependency errors in configuration" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

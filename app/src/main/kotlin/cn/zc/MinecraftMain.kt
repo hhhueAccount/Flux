@@ -1,4 +1,4 @@
-package cn.zc.app
+package cn.zc.app.cn.zc
 
 import cn.zc.LogicCore
 import cn.zc.NetworkServer

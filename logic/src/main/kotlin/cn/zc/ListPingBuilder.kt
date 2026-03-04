@@ -6,7 +6,6 @@ import com.google.gson.JsonParser
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.serializer.json.JSONComponentSerializer
 import org.jetbrains.annotations.Contract
-import org.jetbrains.annotations.NonNls
 import java.io.InputStream
 import kotlin.io.encoding.Base64
 

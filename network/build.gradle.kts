@@ -13,22 +13,17 @@ dependencies {
     implementation(libs.commons.text)
     implementation(libs.guava)
     implementation(libs.gson)
+    implementation(libs.jetbrains.annotation)
 
     // net
-    implementation(libs.netty)
+    implementation(libs.netty.buffer)
+    implementation(libs.netty.tansport)
     implementation(libs.flow.network)
 
     // logging
     implementation(libs.bundles.log4j)
 
     // minecraft
-    implementation(libs.paper)
-    implementation(libs.bundles.adventure)
-
-    // kotlin
-    // bugfix:
-    // 修复特定场景下logger无法获取，进而报错的bug
-    implementation(libs.kotlin.reflection)
-
-    implementation(libs.jetbrains.annotation)
+    implementation(libs.paper) // 包含几乎所有adventure lib依赖
+    implementation(libs.adventure.nbt)
 }

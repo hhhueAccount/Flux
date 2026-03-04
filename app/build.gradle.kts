@@ -8,12 +8,8 @@ group = "cn.zc"
 version = "1.0"
 
 dependencies {
-    implementation(project(":utils"))
     implementation(project(":logic"))
     implementation(project(":network"))
-
-    implementation(libs.bundles.adventure)
-    implementation(libs.gson)
 }
 
 application {

@@ -1,19 +1,15 @@
 package cn.zc.handler
 
 import cn.zc.GameProfile
-import cn.zc.Session
 import cn.zc.handler.LoginCacheProvider.cache
 import cn.zc.packet.clientbound.login.LoginFinishPacket
 import cn.zc.packet.serverbound.handshake.Intent
 import cn.zc.packet.serverbound.handshake.IntentionPacket
-import cn.zc.packet.serverbound.login.LoginStartPacket
 import cn.zc.packet.serverbound.login.LoginKnownPacket
-import com.google.common.cache.Cache
-import com.google.common.cache.CacheBuilder
+import cn.zc.packet.serverbound.login.LoginStartPacket
 import com.google.common.eventbus.Subscribe
 import org.apache.logging.log4j.kotlin.logger
 import org.jetbrains.annotations.ApiStatus
-import java.time.Duration
 
 @ApiStatus.Internal
 object LoginHandler {

@@ -1,9 +1,8 @@
 package cn.zc
 
-import cn.zc.extension.Identifier
+import cn.zc.resource.Identifier
 import com.google.common.collect.ArrayListMultimap
 import com.google.common.collect.Multimap
-import com.google.common.io.ByteStreams
 import org.jetbrains.annotations.ApiStatus
 
 /**
