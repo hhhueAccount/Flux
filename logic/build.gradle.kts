@@ -13,4 +13,6 @@ dependencies {
     implementation(libs.gson)
     implementation(libs.guava)
     implementation(libs.bundles.log4j)
+    implementation(libs.netty.buffer)
+    implementation(libs.netty.tansport)
 }

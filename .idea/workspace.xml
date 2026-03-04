@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05dd0692-2c2d-4796-819e-fe4a68350972" name="更改" comment="Fix dependency errors in configuration">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/kotlin/MinecraftMain.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/kotlin/cn/zc/MinecraftMain.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/buildSrc/src/main/kotlin/common-logic.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/src/main/kotlin/common-logic.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logic/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/logic/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/ListPingBuilder.kt" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/ListPingBuilder.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/LogicCore.kt" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/LogicCore.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/PluginMessages.kt" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/PluginMessages.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/SimplePlayerData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/SimplePlayerData.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/handler/LoginHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/logic/src/main/kotlin/cn/zc/handler/LoginHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/network/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/common/UpdateTagsPacket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/common/UpdateTagsPacket.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/registry/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/registry/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -538,7 +526,7 @@
     &quot;accountId&quot;: &quot;57c01cc7-c1f0-431c-ada9-4f4de42ee766&quot;
   }
 }</component>
-  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="E:\ProgramFiles\gradle\zchun\wrapper\dists\gradle-8.14-bin\38aieal9i53h9rfe7vjup95b9\gradle-8.14" javaHome="C:\Users\zchun\.jdks\ms-21.0.10" gradleVersion="8.14" />
+  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="E:\ProgramFiles\gradle" javaHome="C:\Users\zchun\.jdks\ms-21.0.10" gradleVersion="9.2.1" />
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/network/src/main/kotlin/cn/zc/handler/EncryptionCodec.kt" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -586,7 +574,7 @@
     "project.structure.last.edited": "工件",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.29425287",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
+    "settings.editor.selected.configurable": "settings.codegpt.models"
   },
   "keyToStringList": {
     "jdk.preference.JDK": [
@@ -811,7 +799,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772584099553</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Fix dependency errors in configuration">
+      <option name="closed" value="true" />
+      <created>1772588536278</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1772588536278</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
