@@ -5,8 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05dd0692-2c2d-4796-819e-fe4a68350972" name="更改" comment="update README.md.">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README_zh_CN.md" beforeDir="false" afterPath="$PROJECT_DIR$/README_zh_CN.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/registry/src/main/kotlin/cn/zc/RegistryLoader.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/registry/src/main/kotlin/cn/zc/bean/Tag.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/registry/src/main/kotlin/cn/zc/data/RootRegistries.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/registry/src/main/kotlin/cn/zc/data/RootRegistry.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/src/main/kotlin/cn/zc/resource/Identifier.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/network/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/extension/ByteBufExtension.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/extension/ByteBufExtension.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/extension/Identifier.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/ClientCookieRequestPacket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/ClientCookieRequestPacket.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/ClientPluginMessagePacket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/ClientPluginMessagePacket.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/FeatureFlagsPacket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/FeatureFlagsPacket.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/RegistryDataPacket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/RegistryDataPacket.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/SimpleRegistryEntry.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/SimpleRegistryEntry.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/StoreCookiePacket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/clientbound/configuration/StoreCookiePacket.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/serverbound/configuration/ServerPluginMessagePacket.kt" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/main/kotlin/cn/zc/packet/serverbound/configuration/ServerPluginMessagePacket.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registry/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/registry/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,11 +79,11 @@
       <list>
         <option value="Kotlin File" />
         <option value="Kotlin Enum" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Interface" />
-        <option value="Kotlin Object" />
         <option value="Class" />
+        <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
+        <option value="Kotlin Object" />
       </list>
     </option>
   </component>
@@ -161,11 +175,11 @@
       <recent name="cn.zc.handler" />
     </key>
     <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="cn.zc.resource" />
       <recent name="cn.zc.packet.clientbound.common" />
       <recent name="cn.zc.registry" />
       <recent name="cn.zc.extension" />
       <recent name="cn.zc" />
-      <recent name="cn.zc.packet.registry" />
     </key>
   </component>
   <component name="RunManager" selected="Kotlin.MinecraftMainKt">
@@ -351,7 +365,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772553004369</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="update README.md.">
+      <option name="closed" value="true" />
+      <created>1772554436185</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1772554436185</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

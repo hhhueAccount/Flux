@@ -13,18 +13,18 @@ import org.jetbrains.annotations.ApiStatus
 
 @ApiStatus.Internal
 class ClientBoundRegistry {
-    object Handshake : Registry() {
+    object Handshake : PacketRegistry() {
         override val packets: List<PacketInfo<*>> = emptyList()
     }
 
-    object Status : Registry() {
+    object Status : PacketRegistry() {
         override val packets: List<PacketInfo<*>> = listOf(
             PacketInfo(StatusResponsePacket::class, ::StatusResponsePacket),
             PacketInfo(PongPacket::class, ::PongPacket),
         )
     }
 
-    object Login : Registry() {
+    object Login : PacketRegistry() {
         override val packets: List<PacketInfo<*>> = listOf(
             PacketInfo(DisconnectPacket::class, ::DisconnectPacket),
             PacketInfo(EncryptionRequestPacket::class, ::EncryptionRequestPacket),
@@ -34,7 +34,7 @@ class ClientBoundRegistry {
         )
     }
 
-    object Configuration : Registry() {
+    object Configuration : PacketRegistry() {
         override val packets: List<PacketInfo<*>> = listOf(
             PacketInfo(ClientCookieRequestPacket::class, ::ClientCookieRequestPacket),
             PacketInfo(ClientPluginMessagePacket::class, ::ClientPluginMessagePacket),
@@ -43,7 +43,7 @@ class ClientBoundRegistry {
         )
     }
 
-    object Play : Registry() {
+    object Play : PacketRegistry() {
         override val packets: List<PacketInfo<*>> = listOf(
 
         )

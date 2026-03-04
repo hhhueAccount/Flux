@@ -1,4 +1,4 @@
-package cn.zc.extension
+package cn.zc.resource
 
 data class Identifier(val namespace: String = "minecraft", val value: String) {
 

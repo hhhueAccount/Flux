@@ -6,6 +6,8 @@ group = "cn.zc"
 version = "1.0"
 
 dependencies {
+    implementation(project(":utils"))
+
     // util
     implementation(libs.commons.lang3)
     implementation(libs.commons.text)
@@ -27,8 +29,6 @@ dependencies {
     // bugfix:
     // 修复特定场景下logger无法获取，进而报错的bug
     implementation(libs.kotlin.reflection)
-
-    implementation(project(":utils"))
 
     implementation(libs.jetbrains.annotation)
 }

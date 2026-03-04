@@ -1,5 +1,6 @@
 package cn.zc.extension
 
+import cn.zc.resource.Identifier
 import com.flowpowered.network.util.ByteBufUtils
 import io.netty.buffer.ByteBuf
 import io.netty.buffer.ByteBufInputStream

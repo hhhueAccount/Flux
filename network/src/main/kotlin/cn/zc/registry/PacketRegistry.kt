@@ -20,7 +20,7 @@ import kotlin.reflect.KClass
  *
  * @see PacketInfo 数据包信息封装类
  */
-abstract class Registry {
+abstract class PacketRegistry {
     /**
      * 数据包信息列表，包含所有已注册的数据包。
      *

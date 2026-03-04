@@ -1,9 +1,6 @@
 package cn.zc.packet.clientbound.login
 
 import cn.zc.extension.*
-import cn.zc.extension.readList
-import cn.zc.extension.readOptional
-import cn.zc.extension.readUTF8
 import cn.zc.packet.clientbound.ClientBoundPacket
 import io.netty.buffer.ByteBuf
 import java.util.*

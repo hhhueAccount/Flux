@@ -6,7 +6,7 @@ import cn.zc.extension.writeOptional
 import cn.zc.extension.writeUuid
 import cn.zc.packet.clientbound.ClientBoundPacket
 import io.netty.buffer.ByteBuf
-import java.util.UUID
+import java.util.*
 
 data class RemoveResourcePackPacket(val packUuid: UUID?) : ClientBoundPacket() {
     constructor(byteBuf: ByteBuf) : this(byteBuf.readOptional(ByteBuf::readUuid))
