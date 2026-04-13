@@ -1,3 +1,5 @@
+@file:Suppress("UNUSED")
+
 package cn.zc
 
 import cn.zc.Session.Companion.get
@@ -61,7 +63,12 @@ class Session {
     @ApiStatus.Internal
     fun nextState() {
         state = state.next()
-        logger.trace("[NextState](${channel.remoteAddress()}) $state")
+        logger.trace("[NextState](${channel.id()}) $state")
+    }
+
+    fun jumpState(state: ConnectionState) {
+        this.state = state
+        logger.trace("[JumpState](${channel.id()}) $state")
     }
 
     /**

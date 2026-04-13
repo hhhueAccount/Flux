@@ -10,8 +10,10 @@ version = "1.0"
 dependencies {
     implementation(project(":logic"))
     implementation(project(":network"))
+    implementation(project(":registry"))
+    implementation(libs.paper)
 }
 
 application {
-    mainClass = "cn.zc.app.MinecraftMainKt"
+    mainClass = "cn.zc.MinecraftMainKt"
 }

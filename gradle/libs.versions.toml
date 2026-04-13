@@ -14,6 +14,8 @@ kotlinGradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", ver
 # bugfix:
 # 修复特定场景下logger无法获取，进而报错的bug
 kotlin-reflection = {module = "org.jetbrains.kotlin:kotlin-reflect"}
+serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version = "2.3.20-RC2" }
+serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm", version = "1.10.0" }
 
 # netty network
 netty-buffer = { module = "io.netty:netty-buffer", version = "4.2.9.Final" }
@@ -23,6 +25,7 @@ flow-network = { module = "com.flowpowered:flow-network", version = "1.0.0" } # 
 # utilities
 guava = { module = "com.google.guava:guava", version = "33.5.0-jre" }
 commons-lang3 = { module = "org.apache.commons:commons-lang3", version = "3.20.0" }
+commons-io = { module = "commons-io:commons-io", version = "2.21.0" }
 commons-text = { module = "org.apache.commons:commons-text", version = "1.15.0" }
 commons-collection = {module = "org.apache.commons:commons-collections4", version = "4.5.0"}
 log4j-api = { module = "org.apache.logging.log4j:log4j-api", version.ref = "log4j" }
@@ -30,6 +33,7 @@ log4j-api-kotlin = { module = "org.apache.logging.log4j:log4j-api-kotlin", versi
 log4j-core = { module = "org.apache.logging.log4j:log4j-core", version.ref = "log4j" }
 log4j-slf4j = {module = "org.apache.logging.log4j:log4j-slf4j2-impl", version = "2.25.3"}
 gson = { module = "com.google.code.gson:gson", version = "2.13.2" }
+jackson = { module = "tools.jackson.module:jackson-module-kotlin", version = "3.1.0" }
 
 # minecraft
 adventure = { module = "net.kyori:adventure-api", version.ref = "adventure" }
@@ -37,7 +41,7 @@ adventure-gson = { module = "net.kyori:adventure-text-serializer-gson", version.
 adventure-plain = { module = "net.kyori:adventure-text-serializer-plain", version.ref = "adventure" }
 adventure-minimessgae = { module = "net.kyori:adventure-text-minimessage", version.ref = "adventure" }
 adventure-nbt = { module = "net.kyori:adventure-nbt", version.ref = "adventure" }
-paper = { module = "io.papermc.paper:paper-api", version = "1.21.8-R0.1-SNAPSHOT" }
+paper = { module = "io.papermc.paper:paper-api", version = "1.21.10-R0.1-SNAPSHOT" }
 
 jetbrains-annotation= {module = "org.jetbrains:annotations", version = "26.1.0"}
 
@@ -48,3 +52,4 @@ adventure = ["adventure", "adventure-gson", "adventure-plain", "adventure-minime
 
 [plugins]
 #freefair = { id = "io.freefair.lombok", version = "5.3.0" }
+serialization = { id = "org.gradle.toolchains.foojay-resolver-convention", version = "0.8.0" }

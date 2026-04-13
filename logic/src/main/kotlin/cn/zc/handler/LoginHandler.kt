@@ -1,13 +1,13 @@
+@file:Suppress("UNUSED")
+
 package cn.zc.handler
 
-import cn.zc.GameProfile
-import cn.zc.handler.LoginCacheProvider.cache
-import cn.zc.packet.clientbound.login.LoginFinishPacket
-import cn.zc.packet.serverbound.handshake.Intent
+import cn.zc.ConnectionState
+import cn.zc.packet.clientbound.login.LoginSuccessPacket
 import cn.zc.packet.serverbound.handshake.IntentionPacket
-import cn.zc.packet.serverbound.login.LoginKnownPacket
 import cn.zc.packet.serverbound.login.LoginStartPacket
 import com.google.common.eventbus.Subscribe
+import kotlinx.serialization.ExperimentalSerializationApi
 import org.apache.logging.log4j.kotlin.logger
 import org.jetbrains.annotations.ApiStatus
 
@@ -16,24 +16,26 @@ object LoginHandler {
 
     @Subscribe
     fun onHandshake(intentionPacket: IntentionPacket) {
-        if (intentionPacket.intent != Intent.LOGIN) return
-        intentionPacket.from.nextState()
-        intentionPacket.from.nextState()
+        if (intentionPacket.intention != IntentionPacket.Intention.LOGIN) return
+        intentionPacket.from.jumpState(ConnectionState.LOGIN)
     }
 
     @Subscribe
+    @ExperimentalSerializationApi
     fun onLogin(loginStartPacket: LoginStartPacket) {
-        logger.trace("[RequestLogin] ${loginStartPacket.from.channel.remoteAddress()}")
-        cache.put(
-            loginStartPacket.from,
+        val from = loginStartPacket.from
+
+        logger.trace("[RequestLogin] ${from.channel.id()}")
+        /*cache.put(
+            from,
             GameProfile(
                 loginStartPacket.playerName,
                 loginStartPacket.playerUuid,
-                loginStartPacket.from
+                from
             )
-        )
-        loginStartPacket.from.send(
-            LoginFinishPacket(
+        )*/
+        from.send(
+            LoginSuccessPacket(
                 loginStartPacket.playerUuid,
                 loginStartPacket.playerName,
                 emptyList()
@@ -42,8 +44,9 @@ object LoginHandler {
     }
 
     @Subscribe
-    fun onLoginFinished(loginKnownPacket: LoginKnownPacket) {
+    @ExperimentalSerializationApi
+    fun onLoginFinished(loginKnownPacket: LoginSuccessPacket) {
         loginKnownPacket.from.nextState()
-        logger.trace("[LoginPassed] ${loginKnownPacket.from.channel.remoteAddress()}")
+        logger.trace("[LoginPassed] ${loginKnownPacket.from.channel.id()}")
     }
 }

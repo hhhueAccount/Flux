@@ -1,6 +1,6 @@
 package cn.zc.packet
 
-import io.netty.buffer.ByteBuf
+import kotlinx.serialization.Serializable
 import org.jetbrains.annotations.ApiStatus
 
 /**
@@ -11,9 +11,5 @@ import org.jetbrains.annotations.ApiStatus
  * 以上，该数据包不具备任何读取与写入逻辑。
  */
 @ApiStatus.Internal
-class PlaceHolerPacket() : Packet() {
-    constructor(byteBuf: ByteBuf) : this()
-
-    override fun serialize(byteBuf: ByteBuf) {
-    }
-}
+@Serializable
+class PlaceHolerPacket : Packet()

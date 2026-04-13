@@ -4,16 +4,18 @@ import cn.zc.Packets
 import cn.zc.extension.minecraft
 import cn.zc.extension.readVarInt
 import cn.zc.extension.writeVarInt
-import cn.zc.packet.ErrorPacket
 import cn.zc.packet.Packet
 import cn.zc.registry.ClientBound
 import cn.zc.registry.ServerBound
 import io.netty.buffer.ByteBuf
 import io.netty.channel.ChannelHandlerContext
 import io.netty.handler.codec.MessageToMessageCodec
+import kotlinx.serialization.ExperimentalSerializationApi
 import org.apache.logging.log4j.kotlin.logger
 
+@ExperimentalSerializationApi
 class ServerCodecHandler : MessageToMessageCodec<ByteBuf, Packet>() {
+
     /**
      * 将数据包对象编码为网络字节流
      *
@@ -25,28 +27,23 @@ class ServerCodecHandler : MessageToMessageCodec<ByteBuf, Packet>() {
      * @param out 编码后的字节流输出列表
      */
     override fun encode(ctx: ChannelHandlerContext, packet: Packet, out: MutableList<Any>) {
-        //
-        // 这个类的代码我自己写的，注释可得详细一点
-        // 没人替我背锅了
-        //
-
         val clientConnection = ctx.channel().minecraft()
         // 申请一个新的ByteBuf，用于向下传递，进行进一步处理
         val buffer = ctx.alloc().buffer()
 
         // 针对传入的packet对象的类型获取其对应的ID
-        val id = ClientBound.state(clientConnection.state).getId(packet::class)
+        val registry = ClientBound.state(clientConnection.state)
+        val id = registry.getId(packet::class)
         // 获取id失败，取消发送数据
-        if (id == -2) return
+        if (id == -1) return
 
         // 写入包ID
         buffer.writeVarInt(id)
 
         // 写入包数据
-        //
-        // 每一个Packet的子类都会实现serialize()，那么我们现在直接去调用即可
-        packet.serialize(buffer)
-        logger.trace("[O](${ctx.channel().remoteAddress()}) $packet")
+        val writer = registry.getWriter(id) ?: return
+        writer(buffer, packet)
+        logger.trace("[O](${ctx.channel().id()}) $packet")
 
         buffer.markReaderIndex()
         buffer.resetReaderIndex()
@@ -70,11 +67,12 @@ class ServerCodecHandler : MessageToMessageCodec<ByteBuf, Packet>() {
         // 读取包ID
         val id = trimmedBuffer.readVarInt()
         // 根据ID对应的数据读取逻辑来初始化Packet对象
-        val packet = ServerBound.state(clientConnection.state).deserialize(id, trimmedBuffer)
+        val registry = ServerBound.state(clientConnection.state)
+        val reader = registry.getReader(id) ?: return
         // 读取失败了，直接取消接下来的逻辑的推进，防止出现事故
-        if (packet == ErrorPacket) return
 
-        logger.trace("[I](${ctx.channel().remoteAddress()}) $packet")
+        val packet = reader(trimmedBuffer)
+        logger.trace("[I](${ctx.channel().id()}) $packet")
         // 绑定发送者
         packet.from = ctx.channel().minecraft()
         // 分发数据包到处理逻辑处，进行处理

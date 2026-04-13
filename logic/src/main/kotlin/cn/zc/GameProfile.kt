@@ -1,6 +1,5 @@
 package cn.zc
 
-import cn.zc.packet.clientbound.login.Profile
 import java.util.*
 
 /**
@@ -10,7 +9,7 @@ data class GameProfile(
     val playerName: String,
     val playerUuid: UUID,
     val session: Session,
-    val profiles: List<Profile> = emptyList(),
+//    val profiles: List<Profile> = emptyList(),
     val locale: Locale? = null,
     val brand: String? = null
 )

@@ -10,16 +10,14 @@ import org.jetbrains.annotations.ApiStatus
  * 这个对象实现了单例模式，作为整个应用中数据包通信的中心枢纽。
  * 它使用[EventBus]实现发布-订阅模式，
  * 允许不同组件之间进行解耦的通信。
- *
- * @see cn.zc.packet.Packet 数据包基类
- * @see EventBus Google Guava事件总线
  */
 @ApiStatus.Experimental
 object Packets {
+
     /**
      * 事件总线实例，用于管理事件的发布和订阅。
      */
-    private val bus: EventBus = EventBus()
+    private val bus = EventBus()
 
     /**
      * 发布一个数据包事件到事件总线。

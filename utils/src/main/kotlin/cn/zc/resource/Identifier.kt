@@ -1,7 +1,15 @@
 package cn.zc.resource
 
-data class Identifier(val namespace: String = "minecraft", val value: String) {
+import com.fasterxml.jackson.annotation.JsonCreator
+import com.fasterxml.jackson.annotation.JsonValue
 
+@Deprecated("即将被org.bukkit.NamespacedKey替代")
+data class Identifier(
+    val namespace: String = "minecraft",
+    val value: String
+) {
+
+    @JsonValue
     override fun toString() = "$namespace:$value"
 
     companion object {
@@ -9,6 +17,8 @@ data class Identifier(val namespace: String = "minecraft", val value: String) {
 
         fun isValid(string: String) = pattern.matches(string)
 
+        @JsonCreator
+        @JvmStatic
         fun of(string: String): Identifier {
             if (!isValid(string))
                 throw IllegalArgumentException("错误的标识格式：$string")

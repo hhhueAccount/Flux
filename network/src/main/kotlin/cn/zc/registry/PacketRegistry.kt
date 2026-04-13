@@ -1,75 +1,98 @@
 package cn.zc.registry
 
-import cn.zc.packet.ErrorPacket
+import cn.zc.codec.NettyBuf
 import cn.zc.packet.Packet
 import io.netty.buffer.ByteBuf
+import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.KSerializer
+import org.apache.commons.collections4.map.ListOrderedMap
 import org.apache.logging.log4j.kotlin.logger
-import org.jetbrains.annotations.ApiStatus
+import org.jetbrains.annotations.Contract
 import kotlin.reflect.KClass
 
 /**
- * 数据包注册表的抽象基类，管理数据包的类型与协议ID的映射关系。
- *
- * 此类是所有协议版本注册表的基类，主要功能包括：
- * 1. 为子类提供统一的注册表结构
- * 2. 根据数据包类型查找对应的协议ID
- * 3. 根据协议ID反序列化数据包
- *
- * 每个协议通讯阶段所对应的数据包注册表都需要继承此类并实现`packets`属性，
- * 以提供该版本协议中所有数据包的注册信息。
- *
- * @see PacketInfo 数据包信息封装类
+ * 游戏网络数据包注册表的超类，定义数据包注册表的基本行为。比如：
+ * - 用[KSerializer]注册数据包，在幕后记录其ID、其所对应的[KClass]，并且在内部创建数据包初始化器`(ByteBuf) -> Packet`随后记录
+ * - 用[Packet]所对应的[KClass]来获取数据包对应的注册ID
+ * - 用给定的ID，寻找并且返回数据包初始化器`(ByteBuf) -> Packet`
  */
+@ExperimentalSerializationApi
 abstract class PacketRegistry {
-    /**
-     * 数据包信息列表，包含所有已注册的数据包。
-     *
-     * 子类必须重写此属性并提供完整的数据包列表。
-     * 列表中的顺序决定了每个数据包的协议ID。
-     *
-     * 注意：子类应该使用不可变列表，并在声明时一次性初始化所有数据包信息。
-     */
-    abstract val packets: List<PacketInfo<*>>
 
     /**
-     * 根据数据包类型获取对应的协议ID。
-     *
-     * 此方法用于在发送数据包时，确定需要写入网络流中的协议ID。
-     * 它会遍历注册表中的所有数据包信息，找到匹配的类型并返回其索引。
-     *
-     * @param clazz 数据包的Kotlin类引用
-     * @return 数据包在协议中的ID（即其在列表中的索引位置）
-     * @throws IllegalStateException 如果指定的数据包类型未在注册表中注册
+     * 数据包注册表的存储位置，它作为[Map]可以用[ListOrderedMap.indexOf]获取元素索引值，
+     * 这个索引值作为数据包的ID。
      */
-    fun getId(clazz: KClass<*>): Int {
-        for (info in packets) {
-            if (clazz == info.clazz) {
-                return packets.indexOf(info)
-            }
+    val readers: MutableMap<KClass<*>, (ByteBuf) -> Packet> = mutableMapOf()
+
+    /**
+     * TODO
+     */
+    val writers: MutableMap<KClass<*>, (ByteBuf, Packet) -> Unit> = mutableMapOf()
+
+    /**
+     * 数据包ID存储器
+     */
+    val idStorge: ArrayList<KClass<*>> = ArrayList()
+
+    /**
+     * 快速注册数据包。
+     *
+     * 仅仅允许子类调用该方法
+     */
+    @Suppress("UNCHECKED_CAST")
+    protected inline fun <reified T : Packet> register(serializer: KSerializer<T>) {
+        readers[T::class] = packReader<T>(serializer)
+        writers[T::class] = packWriter(serializer) as (ByteBuf, Packet) -> Unit
+        idStorge.add(T::class)
+    }
+
+    companion object {
+        /**
+         * 把[KSerializer]快速包装为`(ByteBuf) -> Packet`
+         */
+        @Contract(pure = true)
+        inline fun <reified T : Packet> packReader(serializer: KSerializer<T>): (ByteBuf) -> Packet = {
+            NettyBuf.toPacket<T>(serializer, it)
         }
-        // 找不到就报错
-        logger.error("注册表 $this 中未注册类型为 ${clazz.simpleName} 的数据包，现在已经取消发送")
-        return -2
+
+        @Contract(pure = true)
+        inline fun <reified T : Packet> packWriter(serializer: KSerializer<T>): (ByteBuf, T) -> Unit =
+            { buf: ByteBuf, pac: T ->
+                NettyBuf.fromPacket(serializer, buf, pac)
+            }
+    }
+
+    fun getReader(id: Int): ((ByteBuf) -> Packet)? {
+        try {
+            return readers.getValue(idStorge[id])
+        } catch (_: IndexOutOfBoundsException) {
+            logger.error("注册表 $this 中未注册ID为 $id 的数据包")
+        }
+        return null
+    }
+
+    fun getWriter(id: Int): ((ByteBuf, Packet) -> Unit)? {
+        try {
+            return writers.getValue(idStorge[id])
+        } catch (_: IndexOutOfBoundsException) {
+            logger.error("注册表 $this 中未注册ID为 $id 的数据包")
+        }
+        return null
     }
 
     /**
-     * 根据协议ID反序列化数据包。
+     * 从[KClass]获取数据包ID。
      *
-     * 此方法用于从网络字节流中读取数据包。通过协议ID索引到对应的数据包信息，
-     * 然后调用其反序列化函数将[ByteBuf]转换为具体的数据包对象。
-     *
-     * @param id 数据包在协议中的ID
-     * @param byteBuf 包含数据包原始数据的Netty字节缓冲区
-     * @return 反序列化后的数据包对象
-     * 注意：需要确保ID在有效范围内（0 <= id < packets.size）。
+     * 通常在发送数据包的时候调用，因为发送时需要得知数据包的ID并且写入，而此时能提供的只有它对应的[KClass]，
+     * 所以参数被设计为[kClass]
      */
-    @ApiStatus.Internal
-    fun deserialize(id: Int, byteBuf: ByteBuf): Packet {
-        if (packets.size <= id) {
-            // 不存在就报错
-            logger.error("注册表 $this 中未注册ID为 $id 的数据包")
-            return ErrorPacket
+    @Contract(pure = true)
+    fun getId(kClass: KClass<*>): Int {
+        val result = idStorge.indexOf(kClass)
+        if (result == -1) {
+            logger.error("注册表 $this 中未注册类型为 ${kClass.simpleName} 的数据包")
         }
-        return packets[id].deserializer(byteBuf)
+        return result
     }
 }

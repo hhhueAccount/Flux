@@ -2,6 +2,8 @@ package cn.zc.packet
 
 import cn.zc.Session
 import io.netty.buffer.ByteBuf
+import kotlinx.serialization.KSerializer
+import kotlinx.serialization.Serializable
 import org.jetbrains.annotations.ApiStatus
 
 /**
@@ -19,15 +21,4 @@ abstract class Packet {
      * - 在服务端网络模块，只有[cn.zc.packet.serverbound.ServerBoundPacket]才会初始化这个值
      */
     lateinit var from: Session
-
-    /**
-     * 将数据包对象序列化到指定的字节缓冲区。
-     *
-     * 此方法由具体的数据包子类实现，负责将数据包的字段按照`Minecraft`协议格式。
-     * 编码并写入到[byteBuf]中。序列化后的数据将通过网络发送到客户端或服务端。
-     *
-     * @param byteBuf 目标字节缓冲区，序列化后的数据将写入此缓冲区
-     */
-    @ApiStatus.Internal
-    abstract fun serialize(byteBuf: ByteBuf)
 }

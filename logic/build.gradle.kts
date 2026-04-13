@@ -1,5 +1,6 @@
 plugins {
     id("buildsrc.convention.common-logic")
+    kotlin("plugin.serialization")
 }
 
 group = "cn.zc"
@@ -15,4 +16,6 @@ dependencies {
     implementation(libs.bundles.log4j)
     implementation(libs.netty.buffer)
     implementation(libs.netty.tansport)
+    implementation(libs.serialization)
+    implementation(libs.serialization.core)
 }

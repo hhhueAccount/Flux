@@ -1,19 +1,23 @@
 package cn.zc
 
-import cn.zc.extension.minecraft
 import cn.zc.handler.Empty
 import cn.zc.handler.FramingHandler
 import cn.zc.handler.ServerCodecHandler
 import com.google.common.base.MoreObjects
 import com.google.common.util.concurrent.ThreadFactoryBuilder
 import io.netty.bootstrap.ServerBootstrap
+import io.netty.channel.Channel
 import io.netty.channel.ChannelHandlerContext
 import io.netty.channel.ChannelInitializer
 import io.netty.channel.MultiThreadIoEventLoopGroup
+import io.netty.channel.group.ChannelGroup
+import io.netty.channel.group.DefaultChannelGroup
 import io.netty.channel.nio.NioIoHandler
 import io.netty.channel.socket.nio.NioServerSocketChannel
 import io.netty.channel.socket.nio.NioSocketChannel
 import io.netty.handler.timeout.ReadTimeoutHandler
+import io.netty.util.concurrent.GlobalEventExecutor
+import kotlinx.serialization.ExperimentalSerializationApi
 import org.apache.logging.log4j.kotlin.logger
 
 /**
@@ -27,7 +31,9 @@ import org.apache.logging.log4j.kotlin.logger
  * @see ServerBootstrap Netty服务器启动类
  * @see MultiThreadIoEventLoopGroup Netty事件循环组
  */
-class NetworkServer(val port: Int = 25565, val host: String = "localhost") {
+@Suppress("Unused")
+class NetworkServer(val port: Int = 25565, val host: String = "0.0.0.0") {
+
     /**
      * Boss线程组，专门负责接受新的客户端连接
      */
@@ -51,14 +57,14 @@ class NetworkServer(val port: Int = 25565, val host: String = "localhost") {
      *
      * 可以用于获取在线人数，进行批量化操作等等
      */
-    val clients: MutableSet<Session> = HashSet()
+    val clients: ChannelGroup = DefaultChannelGroup(GlobalEventExecutor.INSTANCE)
 
     /**
      * 服务器通道，表示与客户端的连接通道。
      *
      * 使用`lateinit`延迟初始化，在`launch()`方法中创建。
      */
-    lateinit var session: Session
+    lateinit var channel: Channel
 
     /**
      * 启动`Minecraft`网络服务器。
@@ -66,6 +72,7 @@ class NetworkServer(val port: Int = 25565, val host: String = "localhost") {
      * 该方法配置并启动Netty服务器，包括线程组配置、通道初始化和端口绑定。
      * 使用监听器检测绑定操作的成功与否，并提供详细的日志输出。
      */
+    @ExperimentalSerializationApi
     fun launch() {
         logger.info("开始启动网络服务...")
 
@@ -74,11 +81,6 @@ class NetworkServer(val port: Int = 25565, val host: String = "localhost") {
             .group(bossGroup, workerGroup)
             .channel(NioServerSocketChannel::class.java)
             .childHandler(object : ChannelInitializer<NioSocketChannel>() {
-                /**
-                 * 客户端连接服务器时触发
-                 *
-                 * 可以处理一些连接逻辑
-                 */
                 override fun initChannel(ch: NioSocketChannel) {
                     ch.pipeline()
                         ?.addLast("timeout", ReadTimeoutHandler(30))
@@ -87,9 +89,8 @@ class NetworkServer(val port: Int = 25565, val host: String = "localhost") {
                         ?.addLast("compression", Empty)
                         ?.addLast("codec", ServerCodecHandler())
 
-                    clients.add(ch.minecraft())
-
-                    logger.info("[Connect] ${ch.remoteAddress()}")
+                    clients.add(ch)
+                    logger.info("[Connect] ${ch.id()}")
                 }
 
                 /**
@@ -101,22 +102,16 @@ class NetworkServer(val port: Int = 25565, val host: String = "localhost") {
                 }
             })
             .bind(host, port)
-        // 这里进一步利用future对象获取封装好的session对象
-        session = future
             .sync()
-            .channel()
-            .minecraft()
+
+        channel = future.channel()
 
         // 在上述逻辑同步执行完毕后，判断是否成功启动
         if (future.isSuccess) {
-            // 启动成功逻辑
             logger.info("✅ 网络服务模块已经在 $host:$port 上开启")
-            logger.debug("服务器通道详情：$session")
+            logger.debug("服务器通道详情：$channel")
             logger.debug("网络模块状态：$this")
         } else {
-            // 启动失败逻辑
-            //
-            // 输出日志并且关闭网络服务
             logger.error("❌ 网络服务模块启动失败：无法绑定到 $host:$port")
             logger.debug("网络模块状态：$this")
             stop()
@@ -128,14 +123,13 @@ class NetworkServer(val port: Int = 25565, val host: String = "localhost") {
      */
     fun stop() {
         logger.info("正在停止网络服务模块...")
+        channel.close().syncUninterruptibly()
+        logger.info("$host:$port 上的网络服务已经被关闭")
 
-        // 关闭服务器连接
-        session.disconnect()
-        // 关闭线程组
+        logger.info("正在关闭网络服务进程...")
         bossGroup.shutdownGracefully()
         workerGroup.shutdownGracefully()
-
-        logger.info("$host:$port 上的网络服务已经被关闭")
+        logger.info("网络进程已关闭")
     }
 
     /**

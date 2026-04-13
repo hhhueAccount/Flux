@@ -1,3 +1,5 @@
+@file:Suppress("Unused")
+
 package cn.zc.extension
 
 import cn.zc.resource.Identifier

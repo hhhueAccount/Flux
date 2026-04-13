@@ -1,10 +1,9 @@
-package cn.zc.app.cn.zc
-
-import cn.zc.LogicCore
-import cn.zc.NetworkServer
+package cn.zc
 
 fun main() {
     val server = NetworkServer()
     server.launch()
+//    server.stop()
     LogicCore.setupListener()
+    EarlyRegistryLoader.loadAll()
 }

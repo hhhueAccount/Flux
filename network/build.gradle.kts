@@ -1,5 +1,6 @@
 plugins {
     id("buildsrc.convention.common-logic")
+    kotlin("plugin.serialization")
 }
 
 group = "cn.zc"
@@ -11,9 +12,12 @@ dependencies {
     // util
     implementation(libs.commons.lang3)
     implementation(libs.commons.text)
+    implementation(libs.commons.collection)
     implementation(libs.guava)
     implementation(libs.gson)
     implementation(libs.jetbrains.annotation)
+    implementation(libs.serialization)
+    implementation(libs.serialization.core)
 
     // net
     implementation(libs.netty.buffer)

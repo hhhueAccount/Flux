@@ -1,5 +1,3 @@
-import org.gradle.kotlin.dsl.maven
-
 dependencyResolutionManagement {
     // 配置所有子项目的maven仓库源
     @Suppress("UnstableApiUsage")
@@ -19,8 +17,8 @@ pluginManagement {
     }
 
     plugins {
-        kotlin("plugin.lombok") version "1.9.10"
         kotlin("plugin.serialization") version "2.3.0"
+        id("com.github.johnrengelman.shadow") version "8.1.1"
     }
 }
 
