@@ -2,6 +2,7 @@ package cn.zc.registry
 
 import cn.zc.packet.PlaceHolerPacket
 import cn.zc.packet.serverbound.common.PingPacket
+import cn.zc.packet.serverbound.configuration.ClientInformationPacket
 import cn.zc.packet.serverbound.handshake.IntentionPacket
 import cn.zc.packet.serverbound.login.LoginAcknowledgedPacket
 import cn.zc.packet.serverbound.login.LoginStartPacket
@@ -29,10 +30,16 @@ class ServerBoundRegistry {
         init {
             register(LoginStartPacket.serializer())
             register(PlaceHolerPacket.serializer())
+            register(PlaceHolerPacket.serializer())
             register(LoginAcknowledgedPacket.serializer())
         }
     }
 
-    object Configuration : PacketRegistry()
+    object Configuration : PacketRegistry() {
+        init {
+            register(ClientInformationPacket.serializer())
+        }
+    }
+
     object Play : PacketRegistry()
 }

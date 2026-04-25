@@ -1,7 +1,6 @@
 package cn.zc.handler
 
-import cn.zc.extension.readVarInt
-import cn.zc.extension.writeVarInt
+import com.flowpowered.network.util.ByteBufUtils
 import io.netty.buffer.ByteBuf
 import io.netty.buffer.Unpooled
 import io.netty.channel.ChannelHandlerContext
@@ -71,13 +70,13 @@ class CompressionHandler(private val threshold: Int) : MessageToMessageCodec<Byt
                 // compression increased the size. threshold is probably too low
                 // send as an uncompressed packet
                 compressedData.release()
-                prefixBuf.writeVarInt(0)
+                ByteBufUtils.writeVarInt(prefixBuf, 0)
                 msg.readerIndex(index)
                 msg.retain()
                 contentsBuf = msg
             } else {
                 // all is well
-                prefixBuf.writeVarInt(length)
+                ByteBufUtils.writeVarInt(prefixBuf, length)
                 contentsBuf = Unpooled.wrappedBuffer(
                     compressedData.array(),
                     compressedData.arrayOffset() + compressedData.readerIndex(),
@@ -87,7 +86,7 @@ class CompressionHandler(private val threshold: Int) : MessageToMessageCodec<Byt
             }
         } else {
             // message should be sent through
-            prefixBuf.writeVarInt(0)
+            ByteBufUtils.writeVarInt(prefixBuf, 0)
             msg.retain()
             contentsBuf = msg
         }
@@ -107,7 +106,7 @@ class CompressionHandler(private val threshold: Int) : MessageToMessageCodec<Byt
      */
     override fun decode(ctx: ChannelHandlerContext, msg: ByteBuf?, out: MutableList<Any>) {
         val index = msg!!.readerIndex()
-        val uncompressedSize: Int = msg.readVarInt()
+        val uncompressedSize: Int = ByteBufUtils.readVarInt(msg)
         if (uncompressedSize == 0) {
             // message is uncompressed
             val length = msg.readableBytes()

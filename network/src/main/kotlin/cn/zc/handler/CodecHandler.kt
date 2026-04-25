@@ -2,11 +2,10 @@ package cn.zc.handler
 
 import cn.zc.Packets
 import cn.zc.extension.minecraft
-import cn.zc.extension.readVarInt
-import cn.zc.extension.writeVarInt
 import cn.zc.packet.Packet
 import cn.zc.registry.ClientBound
 import cn.zc.registry.ServerBound
+import com.flowpowered.network.util.ByteBufUtils
 import io.netty.buffer.ByteBuf
 import io.netty.channel.ChannelHandlerContext
 import io.netty.handler.codec.MessageToMessageCodec
@@ -14,7 +13,7 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import org.apache.logging.log4j.kotlin.logger
 
 @ExperimentalSerializationApi
-class ServerCodecHandler : MessageToMessageCodec<ByteBuf, Packet>() {
+class CodecHandler : MessageToMessageCodec<ByteBuf, Packet>() {
 
     /**
      * 将数据包对象编码为网络字节流
@@ -38,7 +37,7 @@ class ServerCodecHandler : MessageToMessageCodec<ByteBuf, Packet>() {
         if (id == -1) return
 
         // 写入包ID
-        buffer.writeVarInt(id)
+        ByteBufUtils.writeVarInt(buffer, id)
 
         // 写入包数据
         val writer = registry.getWriter(id) ?: return
@@ -65,7 +64,7 @@ class ServerCodecHandler : MessageToMessageCodec<ByteBuf, Packet>() {
         val clientConnection = ctx.channel().minecraft()
 
         // 读取包ID
-        val id = trimmedBuffer.readVarInt()
+        val id = ByteBufUtils.readVarInt(trimmedBuffer)
         // 根据ID对应的数据读取逻辑来初始化Packet对象
         val registry = ServerBound.state(clientConnection.state)
         val reader = registry.getReader(id) ?: return
@@ -81,7 +80,7 @@ class ServerCodecHandler : MessageToMessageCodec<ByteBuf, Packet>() {
         // 发生了错误！
         // 一般这种情况都意味着数据包读取逻辑不对劲，写错了！
         if (trimmedBuffer.readableBytes() != 0) {
-            logger.trace("${packet}出现${trimmedBuffer.readableBytes()}字节未读取的数据，读取逻辑是否有疏漏?")
+            logger.trace("$packet 出现 ${trimmedBuffer.readableBytes()} 字节未读取的数据，读取逻辑是否有疏漏?")
             trimmedBuffer.resetReaderIndex()
             return
         }

@@ -5,6 +5,7 @@ package cn.zc.handler
 import cn.zc.ConnectionState
 import cn.zc.packet.clientbound.login.LoginSuccessPacket
 import cn.zc.packet.serverbound.handshake.IntentionPacket
+import cn.zc.packet.serverbound.login.LoginAcknowledgedPacket
 import cn.zc.packet.serverbound.login.LoginStartPacket
 import com.google.common.eventbus.Subscribe
 import kotlinx.serialization.ExperimentalSerializationApi
@@ -26,14 +27,8 @@ object LoginHandler {
         val from = loginStartPacket.from
 
         logger.trace("[RequestLogin] ${from.channel.id()}")
-        /*cache.put(
-            from,
-            GameProfile(
-                loginStartPacket.playerName,
-                loginStartPacket.playerUuid,
-                from
-            )
-        )*/
+        from.sessionInfo?.playerName = loginStartPacket.playerName
+        from.sessionInfo?.playerUuid = loginStartPacket.playerUuid
         from.send(
             LoginSuccessPacket(
                 loginStartPacket.playerUuid,
@@ -45,7 +40,7 @@ object LoginHandler {
 
     @Subscribe
     @ExperimentalSerializationApi
-    fun onLoginFinished(loginKnownPacket: LoginSuccessPacket) {
+    fun onLoginFinished(loginKnownPacket: LoginAcknowledgedPacket) {
         loginKnownPacket.from.nextState()
         logger.trace("[LoginPassed] ${loginKnownPacket.from.channel.id()}")
     }

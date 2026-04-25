@@ -7,13 +7,13 @@ import kotlinx.serialization.descriptors.PrimitiveKind
 import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
 
 @ExperimentalSerializationApi
-object VarIntSerializer : ByteBufSerializer<Int>() {
+object RawBytesSerializer : ByteBufSerializer<ByteArray>() {
     override val descriptor =
-        PrimitiveSerialDescriptor("VarInt", PrimitiveKind.INT)
+        PrimitiveSerialDescriptor("RawBytes", PrimitiveKind.BYTE)
 
-    override fun serializeBuf(encoder: ByteBufEncoder, value: Int) {
-        encoder.encodeVarInt(value)
+    override fun serializeBuf(encoder: ByteBufEncoder, value: ByteArray) {
+        encoder.encodeRawBytes(value)
     }
 
-    override fun deserializeBuf(decoder: ByteBufDecoder) = decoder.decodeVarInt()
+    override fun deserializeBuf(decoder: ByteBufDecoder) = decoder.decodeRawBytes()
 }

@@ -40,6 +40,11 @@ class Session {
     val channel: Channel
 
     /**
+     * 存储会话的信息
+     */
+    var sessionInfo: TemporarySessionInfo? = TemporarySessionInfo()
+
+    /**
      * 私有构造函数，确保只能通过伴生对象的[get]方法创建实例
      *
      * @param channel 客户端网络通道
@@ -147,6 +152,10 @@ class Session {
                 "compression", "compression",
                 CompressionHandler(threshold)
             )
+    }
+
+    fun cleanUpInfoContainer() {
+        sessionInfo = null
     }
 
     override fun toString() =

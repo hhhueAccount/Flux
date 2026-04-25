@@ -8,14 +8,14 @@ import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
 import net.kyori.adventure.text.Component
 
 @ExperimentalSerializationApi
-object JsonComponentSerializer : PacketSerializer<Component>() {
+object ComponentJsonSerializer : ByteBufSerializer<Component>() {
     override val descriptor =
         PrimitiveSerialDescriptor("TextComponent", PrimitiveKind.STRING)
 
-    override fun serializePacket(encoder: ByteBufEncoder, value: Component) {
-        encoder.encodeJsonComponent(value)
+    override fun serializeBuf(encoder: ByteBufEncoder, value: Component) {
+        encoder.encodeComponentAsJson(value)
     }
 
-    override fun deserializePacket(decoder: ByteBufDecoder) =
-        decoder.decodeJsonComponent()
+    override fun deserializeBuf(decoder: ByteBufDecoder) =
+        decoder.decodeComponentFromJson()
 }

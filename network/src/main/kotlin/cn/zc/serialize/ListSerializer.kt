@@ -7,17 +7,17 @@ import kotlinx.serialization.KSerializer
 import kotlinx.serialization.descriptors.SerialDescriptor
 
 @ExperimentalSerializationApi
-data class ListSerializer<T>(val kSerializer: KSerializer<T>) : PacketSerializer<List<T>>() {
+data class ListSerializer<T>(val kSerializer: KSerializer<T>) : ByteBufSerializer<List<T>>() {
     override val descriptor = SerialDescriptor("List", kSerializer.descriptor)
 
-    override fun serializePacket(encoder: ByteBufEncoder, value: List<T>) {
+    override fun serializeBuf(encoder: ByteBufEncoder, value: List<T>) {
         encoder.encodeVarInt(value.size)
         for (t in value) {
             encoder.encodeSerializableValue(kSerializer, t)
         }
     }
 
-    override fun deserializePacket(decoder: ByteBufDecoder): List<T> {
+    override fun deserializeBuf(decoder: ByteBufDecoder): List<T> {
         val size = decoder.decodeVarInt()
         val list = ArrayList<T>(size)
         for (i in 0 until size) {

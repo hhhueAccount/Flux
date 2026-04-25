@@ -2,7 +2,7 @@ package cn.zc
 
 import cn.zc.handler.Empty
 import cn.zc.handler.FramingHandler
-import cn.zc.handler.ServerCodecHandler
+import cn.zc.handler.CodecHandler
 import com.google.common.base.MoreObjects
 import com.google.common.util.concurrent.ThreadFactoryBuilder
 import io.netty.bootstrap.ServerBootstrap
@@ -87,10 +87,10 @@ class NetworkServer(val port: Int = 25565, val host: String = "0.0.0.0") {
                         ?.addLast("encryption", Empty)
                         ?.addLast("framing", FramingHandler())
                         ?.addLast("compression", Empty)
-                        ?.addLast("codec", ServerCodecHandler())
+                        ?.addLast("codec", CodecHandler())
 
                     clients.add(ch)
-                    logger.info("[Connect] ${ch.id()}")
+                    logger.info("[Connect](${ch.id()}) ${ch.remoteAddress()}")
                 }
 
                 /**

@@ -8,18 +8,18 @@ import kotlinx.serialization.encoding.Decoder
 import kotlinx.serialization.encoding.Encoder
 
 @ExperimentalSerializationApi
-abstract class PacketSerializer<T> : KSerializer<T> {
+abstract class ByteBufSerializer<T> : KSerializer<T> {
 
     final override fun serialize(encoder: Encoder, value: T) {
         require(encoder is ByteBufEncoder)
-        serializePacket(encoder, value)
+        serializeBuf(encoder, value)
     }
 
     final override fun deserialize(decoder: Decoder): T {
         require(decoder is ByteBufDecoder)
-        return deserializePacket(decoder)
+        return deserializeBuf(decoder)
     }
 
-    abstract fun serializePacket(encoder: ByteBufEncoder, value: T)
-    abstract fun deserializePacket(decoder: ByteBufDecoder): T
+    abstract fun serializeBuf(encoder: ByteBufEncoder, value: T)
+    abstract fun deserializeBuf(decoder: ByteBufDecoder): T
 }

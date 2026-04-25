@@ -9,14 +9,14 @@ import kotlinx.serialization.descriptors.PrimitiveKind
 import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
 
 @OptIn(ExperimentalSerializationApi::class)
-object JsonSerializer : PacketSerializer<JsonObject>() {
+object JsonSerializer : ByteBufSerializer<JsonObject>() {
     override val descriptor =
         PrimitiveSerialDescriptor("Json", PrimitiveKind.STRING)
 
-    override fun serializePacket(encoder: ByteBufEncoder, value: JsonObject) {
+    override fun serializeBuf(encoder: ByteBufEncoder, value: JsonObject) {
         encoder.encodeString(value.toString())
     }
 
-    override fun deserializePacket(decoder: ByteBufDecoder): JsonObject =
+    override fun deserializeBuf(decoder: ByteBufDecoder): JsonObject =
         JsonParser.parseString(decoder.decodeString()).asJsonObject
 }

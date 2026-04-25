@@ -1,7 +1,6 @@
 package cn.zc.handler
 
-import cn.zc.extension.readVarInt
-import cn.zc.extension.writeVarInt
+import com.flowpowered.network.util.ByteBufUtils
 import io.netty.buffer.ByteBuf
 import io.netty.channel.ChannelHandlerContext
 import io.netty.handler.codec.ByteToMessageCodec
@@ -38,27 +37,28 @@ class FramingHandler : ByteToMessageCodec<ByteBuf?>() {
     }
 
     override fun encode(ctx: ChannelHandlerContext, msg: ByteBuf?, out: ByteBuf) {
-        out.writeVarInt(msg!!.readableBytes())
+        ByteBufUtils.writeVarInt(out, msg!!.readableBytes())
         out.writeBytes(msg)
     }
 
-    override fun decode(ctx: ChannelHandlerContext, `in`: ByteBuf, out: MutableList<Any?>) {
+    override fun decode(ctx: ChannelHandlerContext, input: ByteBuf, out: MutableList<Any?>) {
         // check for length field readability
-        `in`.markReaderIndex()
-        if (!readableVarInt(`in`)) {
+        input.markReaderIndex()
+        if (!readableVarInt(input)) {
             return
         }
 
         // check for contents readability
-        val length = `in`.readVarInt()
-        if (`in`.readableBytes() < length) {
-            `in`.resetReaderIndex()
+        val length = ByteBufUtils.readVarInt(input)
+
+        if (input.readableBytes() < length) {
+            input.resetReaderIndex()
             return
         }
 
         // read contents into buf
         val buf = ctx.alloc().buffer(length)
-        `in`.readBytes(buf, length)
+        input.readBytes(buf, length)
         out.add(buf)
     }
 
